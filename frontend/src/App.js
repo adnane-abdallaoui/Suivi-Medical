@@ -53,3 +53,75 @@ function App() {
 
 export default App;
 
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     password: "",
+//     role: "patient", // Par défaut "patient", peut être changé en "doctor"
+//   });
+//   const [users, setUsers] = useState([]);
+
+//   
+  // Charger les utilisateurs
+  useEffect(() => {
+    axios.get("http://localhost:5000/users")
+      .then((response) => setUsers(response.data))
+      .catch((error) => console.error("Erreur lors du chargement :", error));
+  }, []);
+//   // Gérer la soumission du formulaire
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     axios.post("http://localhost:5000/users", formData)
+//       .then((response) => {
+//         alert("Inscription réussie !");
+//         setUsers([...users, response.data]); // Ajouter l'utilisateur à la liste
+//         setFormData({ name: "", email: "", password: "", role: "patient" });
+//       })
+//       .catch((error) => {
+//         if (error.response && error.response.data.error) {
+//           alert(error.response.data.error);
+//         } else {
+//           console.error("Erreur lors de l'inscription :", error);
+//         }
+//       });
+//   };
+   // <div className="App">
+    //   <h1>Inscription</h1>
+    //   <form onSubmit={handleSubmit}>
+    //     <input
+    //       type="text"
+    //       placeholder="Nom"
+    //       value={formData.name}
+    //       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+    //       required
+    //     />
+    //     <input
+    //       type="email"
+    //       placeholder="Email"
+    //       value={formData.email}
+    //       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+    //       required
+    //     />
+    //     <input
+    //       type="password"
+    //       placeholder="Mot de passe"
+    //       value={formData.password}
+    //       onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+    //       required
+    //     />
+    //     <select
+    //       value={formData.role}
+    //       onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+    //     >
+    //       <option value="patient">Patient</option>
+    //       <option value="doctor">Médecin</option>
+    //     </select>
+    //     <button type="submit">S'inscrire</button>
+    //   </form>
+    //   <h2>Liste des utilisateurs :</h2>
+    //   <ul>
+    //     {users.map((user, index) => (
+    //       <li key={index}>{user.name} - {user.email} ({user.role})</li>
+    //     ))}
+    //   </ul>
+    // </div>

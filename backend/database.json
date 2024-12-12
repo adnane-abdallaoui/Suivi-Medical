@@ -1,14 +1,20 @@
 [
   {
-    "id": 1,
-    "name": "Adnane",
-    "email": "adnane@example.com"
+    "nom": "abdallaoui",
+    "prenom": "adnane",
+    "email": "adnane.abdallaoui@ump.ac.ma",
+    "password": "awnp1789",
+    "specialite": "Cardiologue",
+    "phone": "0695891598",
+    "gender": "Homme"
   },
   {
-    "id": 2,
-    "name": "Yassine",
-    "email": "yassine@example.com"
+    "nom": "abdallaoui",
+    "prenom": "adnane",
+    "email": "adnane.abdallaoui@ump.ac.ma",
+    "password": "qchrqf(-è.",
+    "specialite": "generqle",
+    "phone": "0695891598",
+    "gender": "Homme"
   }
 ]
-
-  
