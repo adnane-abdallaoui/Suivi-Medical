@@ -9,12 +9,21 @@
     "gender": "Homme"
   },
   {
-    "nom": "abdallaoui",
-    "prenom": "adnane",
-    "email": "adnane.abdallaoui@ump.ac.ma",
-    "password": "qchrqf(-è.",
-    "specialite": "generqle",
+    "nom": "Abattouy",
+    "prenom": "Achraf",
+    "email": "Achraf.Abattouy@ump.ac.ma",
+    "password": "awnp1234",
+    "specialite": "Gynecologue",
     "phone": "0695891598",
+    "gender": "Homme"
+  },
+  {
+    "nom": "Rahhaoui",
+    "prenom": "Mouad",
+    "email": "moad.rahhaoui@ump.ac.ma",
+    "password": "azerty7896",
+    "specialite": "Dentiste",
+    "phone": "0657849564",
     "gender": "Homme"
   }
 ]

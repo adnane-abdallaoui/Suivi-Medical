@@ -26,15 +26,7 @@ app.post("/register", (req, res) => {
   }
 
   // Créer un objet utilisateur
-  const newUser = {
-    nom,
-    prenom,
-    email,
-    password,
-    specialite,
-    phone,
-    gender,
-  };
+ 
 
   // Lire le fichier database.json pour obtenir les utilisateurs existants
   fs.readFile(databasePath, "utf8", (err, data) => {
@@ -47,8 +39,22 @@ app.post("/register", (req, res) => {
       // Si le fichier n'est pas vide, le parser en JSON
       users = JSON.parse(data);
     }
+     // Vérification si l'email existe déjà
+     const emailExists = users.some((user) => user.email === email);
+     if (emailExists) {
+       return res.status(409).json({ message: "Cet email est déjà enregistré." });
+     }
 
     // Ajouter le nouvel utilisateur
+    const newUser = {
+      nom,
+      prenom,
+      email,
+      password,
+      specialite,
+      phone,
+      gender,
+    };
     users.push(newUser);
 
     // Sauvegarder les utilisateurs dans database.json

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import Swal from "sweetalert2";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -14,15 +15,25 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Vérification des données
-    if (!formData.nom || !formData.prenom || !formData.email || !formData.password || !formData.specialite || !formData.phone || !formData.gender) {
-      alert("Veuillez remplir tous les champs obligatoires.");
+
+    // Vérification que tous les champs sont remplis
+    if (
+      !formData.nom ||
+      !formData.prenom ||
+      !formData.email ||
+      !formData.password ||
+      !formData.specialite ||
+      !formData.phone ||
+      !formData.gender
+    ) {
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Veuillez remplir tous les champs obligatoires.",
+      });
       return;
     }
-  
-    console.log(formData); // Debugging: Affiche les données envoyées
-  
+
     // Envoi des données au backend
     fetch("http://localhost:5000/register", {
       method: "POST",
@@ -34,17 +45,43 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.message === "Utilisateur enregistré avec succès") {
-          alert("Inscription réussie !");
+          Swal.fire({
+            icon: "success",
+            title: "Succès",
+            text: "Inscription réussie !",
+          });
+          setFormData({
+            nom: "",
+            prenom: "",
+            email: "",
+            password: "",
+            specialite: "",
+            phone: "",
+            gender: "",
+          });
+        } else if (data.message === "Cet email est déjà enregistré.") {
+          Swal.fire({
+            icon: "warning",
+            title: "Attention",
+            text: "Cet email est déjà utilisé. Essayez un autre.",
+          });
         } else {
-          alert(data.message);
+          Swal.fire({
+            icon: "error",
+            title: "Erreur",
+            text: data.message,
+          });
         }
       })
       .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Erreur",
+          text: "Une erreur est survenue. Essayez encore.",
+        });
         console.error("Erreur:", error);
-        alert("Une erreur est survenue. Essayez encore.");
       });
   };
-  
 
   return (
     <div className="registration-container">
