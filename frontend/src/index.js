@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import RegistrationPatient from './RegistrationPatient';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -8,7 +9,8 @@ import RegistrationPage from './RegistrationPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RegistrationPage />
+    {/* <RegistrationPage /> */}
+    <RegistrationPatient />
   </React.StrictMode>
 );
 

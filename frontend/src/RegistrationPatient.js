@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Swal from "sweetalert2";
 
-function App() {
+function RegistrationPatient() {
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
     email: "",
     password: "",
-    specialite: "",
     phone: "",
     gender: "",
   });
@@ -22,7 +21,6 @@ function App() {
       !formData.prenom ||
       !formData.email ||
       !formData.password ||
-      !formData.specialite ||
       !formData.phone ||
       !formData.gender
     ) {
@@ -55,7 +53,6 @@ function App() {
             prenom: "",
             email: "",
             password: "",
-            specialite: "",
             phone: "",
             gender: "",
           });
@@ -136,18 +133,7 @@ function App() {
               required
             />
           </div>
-          <div className="form-row">
-            <input
-              type="text"
-              placeholder="Spécialité"
-              name="specialite"
-              value={formData.specialite}
-              onChange={(e) =>
-                setFormData({ ...formData, [e.target.name]: e.target.value })
-              }
-              required
-            />
-          </div>
+          
           <div className="form-row">
             <input
               type="text"
@@ -198,10 +184,10 @@ function App() {
         </p>
       </div>
       <div className="form-image">
-        <img src="/images/doct.jpg" alt="Medical illustration" />
+        <img src="/images/patient.jpg" alt="Medical illustration" />
       </div>
     </div>
   );
 }
 
-export default App;
+export default RegistrationPatient;
